@@ -20,6 +20,20 @@
     <body>
         <header>
             <h1>Alex J Bryce</h1>
+            <nav>
+                    <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                {% block sidebar %}
+                                    <ul class="sidebar-nav">
+                                        <li><a href="{% url 'index' %}">Home</a></li>
+                                        <li><a href="{% url 'project_list' %}">Projects</a></li>
+                                        <li><a href="{% url 'post_list' %}">Blog</a></li>
+                                    </ul>
+                                    {% endblock %}
+                                </div>
+
+            </nav>
         </header>
         <div>
             {% block content %}{% endblock %}

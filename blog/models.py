@@ -1,6 +1,10 @@
+from django.contrib.auth.models import User
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
+from django.urls import reverse
+
 
 
 class Post(models.Model):
@@ -22,16 +26,16 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     image = models.ImageField(upload_to='static/img', blank=True, null=True)
-    created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(blank=True, null=True)
-    url = models.URLField(max_length=250)
+    created_date = models.DateTimeField(blank=True, null=True)
+    published_date = models.DateTimeField(default=timezone.now)
+    url = models.URLField(max_length=250, blank=True, null=True)
     github = models.URLField(max_length=200, blank=True, null=True)
     slug = models.SlugField(unique=True)
 
 
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
+    def save(self, *args, **kwargs):
+        self.set_slug()
+        super().save(*args, **kwargs)
     
     def set_slug(self):
         # If the slug is already set, stop here
@@ -47,11 +51,21 @@ class Project(models.Model):
         self.slug = slug
 
     def get_absolute_url(self):
-        """Returns the url to access the home page."""
-        return reverse('index')
+        return reverse('project_detail', args=[str(self.slug)])
 
     def __str__(self):
         return self.title
 
     class Meta:
         ordering = ['-published_date']
+
+def get_image_filename(instance, filename):
+    title = instance.post.title
+    slug = slugify(title)
+    return "post_images/%s-%s" % (slug, filename)  
+
+
+class Images(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, default=None)
+    image = models.ImageField(upload_to=get_image_filename,
+                              verbose_name='Image')
