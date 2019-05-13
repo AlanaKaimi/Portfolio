@@ -16,6 +16,7 @@
 
         <!-- Add additional CSS in static file -->
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
     </head>
     <body>
         <header>
@@ -29,6 +30,7 @@
                                         <li><a href="{% url 'index' %}">Home</a></li>
                                         <li><a href="{% url 'project_list' %}">Projects</a></li>
                                         <li><a href="{% url 'post_list' %}">Blog</a></li>
+                                        <li><a href="{% url 'resume' %}">Resume</a></li>
                                     </ul>
                                     {% endblock %}
                                 </div>
