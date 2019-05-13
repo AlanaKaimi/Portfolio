@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ art.title }}</h1>
+<p><strong>Published: </strong>{{ art.publish_date }}</p>
+
+
+
+<div class="project-content">
+    <p>{{ art.description }}</p>
+</div>
+
+
+
+{% endblock %}

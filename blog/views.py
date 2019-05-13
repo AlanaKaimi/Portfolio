@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, Project
+from .models import Post, Project, Art
 from django.forms import modelformset_factory
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -16,6 +16,8 @@ def resume(request):
     
     return render(request, 'blog/resume.html', {})
 
+
+
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
@@ -29,6 +31,18 @@ def project_detail(request, slug):
     project = Project.objects.get(slug=slug)
     response = render(request, 'blog/project_detail.html', {
         "project": project
+    })
+    return response
+
+def art_list(request):
+    artifacts = Art.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    
+    return render(request, 'blog/art_list.html', {'artifacts': artifacts})
+
+def art_detail(request, slug):
+    artifact = Art.objects.get(slug=slug)
+    response = render(request, 'blog/art_detail.html', {
+        "artifact": artifact
     })
     return response
 

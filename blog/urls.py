@@ -10,5 +10,8 @@ urlpatterns = [
     path('projects/', views.project_list, name="project_list"),
     path('projects/<slug:slug>', views.project_detail, name='project_detail'),
     path('resume/', views.resume, name="resume"),
+    path('art/', views.art_list, name="art_list"),
+    path('art/<slug:slug>', views.art_detail, name='art_detail'),
+
 
 ]

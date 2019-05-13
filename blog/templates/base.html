@@ -24,11 +24,12 @@
             <nav>
                     <div class="container-fluid">
                             <div class="row">
-                                <div class="col-sm-2">
+                                <div class="navbar">
                                 {% block sidebar %}
-                                    <ul class="sidebar-nav">
+                                    <ul>
                                         <li><a href="{% url 'index' %}">Home</a></li>
                                         <li><a href="{% url 'project_list' %}">Projects</a></li>
+                                        <li><a href="{% url 'art_list' %}">Art</a></li>
                                         <li><a href="{% url 'post_list' %}">Blog</a></li>
                                         <li><a href="{% url 'resume' %}">Resume</a></li>
                                     </ul>
