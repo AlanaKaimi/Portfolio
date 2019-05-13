@@ -21,9 +21,9 @@ def project_list(request):
     
     return render(request, 'blog/project_list.html', {'projects': projects})
 
-def project_detail(request):
+def project_detail(request, slug):
     project = Project.objects.get(slug=slug)
-    response = render(request, '/project_detail.html', {
+    response = render(request, 'blog/project_detail.html', {
         "project": project
     })
     return response
