@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form id="project_form" method="post" action="" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    {% for hidden in projectForm.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+
+    {% for field in projectForm %}
+        {{ field }} <br />
+    {% endfor %}
+
+    {{ formset.management_form }}
+    {% for form in formset %}
+        {{ form }}
+    {% endfor %}
+
+
+    <input type="submit" name="submit" value="Submit" />
+</form>
+
+{% endblock %}
