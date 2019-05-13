@@ -69,3 +69,39 @@ class Images(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, default=None)
     image = models.ImageField(upload_to=get_image_filename,
                               verbose_name='Image')
+
+class Art(models.Model):
+    
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='static/img', blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+    published_date = models.DateTimeField(default=timezone.now)
+    slug = models.SlugField(unique=True)
+
+
+    def save(self, *args, **kwargs):
+        self.set_slug()
+        super().save(*args, **kwargs)
+    
+    def set_slug(self):
+        # If the slug is already set, stop here
+        if self.slug:
+            return
+        base_slug = slugify(self.title)
+        slug = base_slug
+        n = 0
+        # while we can find a record already in the DB with the slug we're trying to use
+        while Art.objects.filter(slug=slug).count():
+            n += 1
+            slug = base_slug + "-" + str(n)        
+        self.slug = slug
+
+    def get_absolute_url(self):
+        return reverse('art_detail', args=[str(self.slug)])
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['-published_date']

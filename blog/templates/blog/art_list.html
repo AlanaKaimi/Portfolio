@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+ 
+
+{% for artifact in artifacts %}
+    <div>
+        <p>published: {{ artifact.published_date }}</p>
+        <h2><a href="">{{ artifact.title }}</a></h2>
+        <p>{{ artifact.description|linebreaksbr }}</p>
+        <ul>
+            <li><img src="../../{{ artifact.image }}"></li>
+
+        </ul>
+    </div>
+{% endfor %}
+
+{% endblock %}
