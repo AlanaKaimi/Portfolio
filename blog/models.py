@@ -13,13 +13,34 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    slug = models.SlugField(unique=True)
 
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
+
+    def save(self, *args, **kwargs):
+        self.set_slug()
+        super().save(*args, **kwargs)
+    
+    def set_slug(self):
+        # If the slug is already set, stop here
+        if self.slug:
+            return
+        base_slug = slugify(self.title)
+        slug = base_slug
+        n = 0
+        # while we can find a record already in the DB with the slug we're trying to use
+        while Post.objects.filter(slug=slug).count():
+            n += 1
+            slug = base_slug + "-" + str(n)        
+        self.slug = slug
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.slug)])
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ['-published_date']
 
 class Project(models.Model):
     

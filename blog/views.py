@@ -10,17 +10,16 @@ from django.views import generic
 from django.urls import reverse, reverse_lazy
 
 def index(request):
-    return render(request, 'index.html', {})
-
-def resume(request):
-    
-    return render(request, 'blog/resume.html', {})
-
-
-
-def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'index.html', {'posts': posts})
+
+
+def post_detail(request, slug):
+    post = Post.objects.get(slug=slug)
+    response = render(request, 'blog/post_detail.html', {
+        "post": post
+    })
+    return response
 
 def project_list(request):
     projects = Project.objects.filter(published_date__lte=timezone.now()).order_by('published_date')

@@ -8,6 +8,7 @@ class PostAdmin(admin.ModelAdmin):
         'author',
         'created_date',
     )
+    exclude = ('slug',)
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
