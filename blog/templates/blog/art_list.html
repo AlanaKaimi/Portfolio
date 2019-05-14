@@ -4,10 +4,12 @@
  
 
 {% for artifact in artifacts %}
-    <div>
-        <img src="../../{{ artifact.image }}">
+    <div class="project clearfix">
         <h3><a href="{{ artifact.get_absolute_url }}">{{ artifact.title }}</a></h3>
         <p>published: {{ artifact.published_date }}</p>
+        <img src="../../{{ artifact.image }}">
+        
+        
         <p>{{ artifact.description|linebreaksbr }}</p>
 
     </div>

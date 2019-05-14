@@ -4,15 +4,16 @@
  
 
 {% for project in projects %}
-    <div>
-        <img src="../../{{ project.image }}">
+    <div class="project clearfix">
         <h3><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h3>
         <p>published: {{ project.published_date }}</p>
+        <img src="../../{{ project.image }}">
         <p>{{ project.description|linebreaksbr }}</p>
-        <ul>
-            <li>{{ project.url }}</li>
-            <li>{{ project.github }}</li>
-        </ul>
+        <p><strong>Links:</strong><br>
+            <a href="{{ project.url }}">Demo {{ project.title }} on heroku</a>
+            <br>
+            <a href="{{ project.github }}"> Check out {{ project.title }}'s code on github</a>
+        </p>
     </div>
 {% endfor %}
 
