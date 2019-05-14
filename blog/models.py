@@ -4,6 +4,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 
 
@@ -14,6 +15,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     slug = models.SlugField(unique=True)
+    tags = TaggableManager()
 
 
     def save(self, *args, **kwargs):
@@ -47,11 +49,16 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     image = models.ImageField(upload_to='static/img', blank=True, null=True)
+    image2 = models.ImageField(upload_to='static/img', blank=True, null=True)
+    image3 = models.ImageField(upload_to='static/img', blank=True, null=True)
+    image4 = models.ImageField(upload_to='static/img', blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
     published_date = models.DateTimeField(default=timezone.now)
     url = models.URLField(max_length=250, blank=True, null=True)
     github = models.URLField(max_length=200, blank=True, null=True)
     slug = models.SlugField(unique=True)
+    tags = TaggableManager()
+
 
 
     def save(self, *args, **kwargs):
@@ -96,10 +103,13 @@ class Art(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     image = models.ImageField(upload_to='static/img', blank=True, null=True)
+    image2 = models.ImageField(upload_to='static/img', blank=True, null=True)
+    image3 = models.ImageField(upload_to='static/img', blank=True, null=True)
+    image4 = models.ImageField(upload_to='static/img', blank=True, null=True)
     created_date = models.DateTimeField(blank=True, null=True)
     published_date = models.DateTimeField(default=timezone.now)
     slug = models.SlugField(unique=True)
-
+    tags = TaggableManager()
 
     def save(self, *args, **kwargs):
         self.set_slug()

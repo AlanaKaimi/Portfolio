@@ -7,6 +7,9 @@
     <div class="project clearfix">
         <h3><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h3>
         <p>published: {{ project.published_date }}</p>
+    {% for tag in project.tags.all %}
+        <li> {{ tag.name }} </li>
+    {% endfor %}
         <img src="../../{{ project.image }}">
         <p>{{ project.description|linebreaksbr }}</p>
         <p><strong>Links:</strong><br>
