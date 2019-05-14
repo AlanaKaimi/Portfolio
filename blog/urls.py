@@ -6,10 +6,9 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('posts/', views.post_list, name='post_list'),
+    path('post/<slug:slug>', views.post_detail, name='post_detail'),
     path('projects/', views.project_list, name="project_list"),
     path('projects/<slug:slug>', views.project_detail, name='project_detail'),
-    path('resume/', views.resume, name="resume"),
     path('art/', views.art_list, name="art_list"),
     path('art/<slug:slug>', views.art_detail, name='art_detail'),
 
