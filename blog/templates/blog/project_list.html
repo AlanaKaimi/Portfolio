@@ -5,11 +5,11 @@
 
 {% for project in projects %}
     <div>
+        <img src="../../{{ project.image }}">
+        <h3><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h3>
         <p>published: {{ project.published_date }}</p>
-        <h2><a href="">{{ project.title }}</a></h2>
         <p>{{ project.description|linebreaksbr }}</p>
         <ul>
-            <li><img src="../../{{ project.image }}"></li>
             <li>{{ project.url }}</li>
             <li>{{ project.github }}</li>
         </ul>

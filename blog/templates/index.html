@@ -2,7 +2,15 @@
 
 {% block content %}
    
-    <p>Hi there!</p>
-    <p>It works!</p>
+    <h2>Welcome</h2>
+    <p>My name is AJ, and I've been a passionate creator for decades. Building solutions at the intersection of technology and design is where I thrive.</p>
+
+{% for post in posts %}
+    <div>
+        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+        <p>published: {{ post.published_date }}</p>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
 
 {% endblock %}

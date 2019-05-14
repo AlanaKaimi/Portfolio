@@ -17,7 +17,7 @@ def index(request):
 def post_detail(request, slug):
     post = Post.objects.get(slug=slug)
     response = render(request, 'blog/post_detail.html', {
-        "post": post
+        'post': post
     })
     return response
 
