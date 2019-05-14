@@ -10,6 +10,9 @@
         <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
         <p>published: {{ post.published_date }}</p>
         <p>{{ post.text|linebreaksbr }}</p>
+    {% for tag in post.tags.all %}
+        <li> {{ tag.name }} </li>
+    {% endfor %}
     </div>
 {% endfor %}
 

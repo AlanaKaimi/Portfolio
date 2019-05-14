@@ -7,8 +7,16 @@ class PostAdmin(admin.ModelAdmin):
         'title',
         'author',
         'created_date',
+        'tag_list'
     )
     exclude = ('slug',)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related('tags')
+
+    def tag_list(self, obj):
+        return u", ".join(o.name for o in obj.tags.all())
+    
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -16,8 +24,15 @@ class ProjectAdmin(admin.ModelAdmin):
         'title',
         'description',
         'created_date',
+        'tag_list'
     )
     exclude = ('slug',)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related('tags')
+
+    def tag_list(self, obj):
+        return u", ".join(o.name for o in obj.tags.all())
 
 @admin.register(Art)
 class ArtAdmin(admin.ModelAdmin):
@@ -25,5 +40,12 @@ class ArtAdmin(admin.ModelAdmin):
         'title',
         'description',
         'created_date',
+        'tag_list'
     )
     exclude = ('slug',)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related('tags')
+
+    def tag_list(self, obj):
+        return u", ".join(o.name for o in obj.tags.all())
