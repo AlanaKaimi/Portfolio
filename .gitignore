@@ -190,6 +190,10 @@ dmypy.json
 
 # Pyre type checker
 
+# Node.js Tools for Visual Studio
+.ntvs_analysis.dat
+node_modules/
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
