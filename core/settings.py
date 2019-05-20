@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'api',
     'taggit',
     'rest_framework',
     'corsheaders',
@@ -129,7 +128,7 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'frontend', "build", "static"),  # update the STATICFILES_DIRS
+    os.path.join(BASE_DIR, "static"),  # update the STATICFILES_DIRS
 )
 
 

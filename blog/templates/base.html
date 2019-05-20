@@ -1,28 +1,26 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>{% block title %}Alex J Bryce{% endblock %}</title>
-        {% block meta %}
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% endblock %}
 
-        <!-- Patternfly CSS -->
-        <link rel="stylesheet" type="text/css" href="/node_modules/patternfly/dist/css/patternfly.css">
-        <link rel="stylesheet" type="text/css" href="/node_modules/patternfly/dist/css/patternfly-additions.css">
+<head>
+    <title>{% block title %}Alex J Bryce{% endblock %}</title>
+    {% block meta %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock %}
 
-        <!-- Add additional CSS in static file -->
-        <link rel="stylesheet" href="{% static 'css/main.css' %}">
-        <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
-    </head>
-    <body>
-        <header>
-            <h1>Alex J Bryce</h1>
-            <nav>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="navbar">
+
+    <!-- Add additional CSS in static file -->
+    <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Alex J Bryce</h1>
+        <nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="navbar">
                         {% block sidebar %}
                         <ul>
                             <li><a href="{% url 'index' %}">About</a></li>
@@ -30,21 +28,19 @@
                             <li><a href="{% url 'art_list' %}">Art</a></li>
                         </ul>
                         {% endblock %}
-                        </div>
                     </div>
                 </div>
+            </div>
 
-            </nav>
-        </header>
-        
-            
-        <div>
-            {% block content %}{% endblock %}
-        </div>
-        
-        
-        <!-- Patternfly JavaScript -->
-        <script src="/node_modules/jquery/dist/jquery.js"></script>
-        <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script> 
-    </body>
+        </nav>
+    </header>
+
+
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+
+
+</body>
+
 </html>
