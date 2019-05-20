@@ -10,6 +10,8 @@ Django = "~=2.0.6"
 pillow = "*"
 python-slugify = "*"
 django-taggit = "*"
+django-rest-framework = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"
