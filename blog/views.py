@@ -39,10 +39,10 @@ def project_detail(request, slug):
     })
     return response
 
-# def art_list(request):
-#     artifacts = Art.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+def art_list(request):
+    artifacts = Art.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     
-#     return render(request, 'blog/art_list.html', {'artifacts': artifacts})
+    return render(request, 'blog/art_list.html', {'artifacts': artifacts})
 
 def art_detail(request, slug):
     artifact = Art.objects.get(slug=slug)
