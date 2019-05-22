@@ -1,21 +1,59 @@
 {% extends "base.html" %}
 
 {% block content %}
- 
+
+
+<!-- {% for artifact in artifacts %}
+<div class="project clearfix">
+    <h3><a href="{{ artifact.get_absolute_url }}">{{ artifact.title }}</a></h3>
+    <p>published: {{ artifact.published_date }}</p>
+    {% for tag in artifact.tags.all %}
+    <li> {{ tag.name }} </li>
+    {% endfor %}
+    <img src="../../{{ artifact.image }}">
+
+
+    <p>{{ artifact.description|linebreaksbr }}</p>
+
+</div>
+{% endfor %} -->
+
 
 {% for artifact in artifacts %}
-    <div class="project clearfix">
-        <h3><a href="{{ artifact.get_absolute_url }}">{{ artifact.title }}</a></h3>
+<div class="card">
+    <img src="../../{{ artifact.image }}" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><a href="{{ artifact.get_absolute_url }}">{{ artifact.title }}</a></h5>
         <p>published: {{ artifact.published_date }}</p>
-        {% for tag in artifact.tags.all %}
-            <li> {{ tag.name }} </li>
-        {% endfor %}
-    <img src="../../{{ artifact.image }}">
-        
-        
-        <p>{{ artifact.description|linebreaksbr }}</p>
 
+
+        <div class="row">
+            <div class="col">
+                <div class="collapse" id="{{ artifact.slug }}">
+                    <div class="card-body">
+                        <p class="card-text">{{ artifact.description }}</p>
+                        <ul>Tags:
+                            {% for tag in artifact.tags.all %}
+
+                            <li>{{ tag.name }}</li>
+
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+        <a class="btn btn-primary" data-toggle="collapse" href="#{{ artifact.slug }}" role="button"
+            aria-expanded="false">+/-</a>
     </div>
-{% endfor %}
 
+
+</div>
+{% endfor %}
 {% endblock %}

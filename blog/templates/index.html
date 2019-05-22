@@ -1,19 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-   
-    <h2>Welcome</h2>
-    <p>My name is AJ, and I've been a passionate creator for decades. Building solutions at the intersection of technology and design is where I thrive.</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/TDJ4KuDqh0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<h2>Welcome</h2>
+<img src="../../static/img/kanaka-diaspora.jpg" class="home-pic">
+<p>My name is AJ, and I've been a passionate creator for decades. Building solutions at the intersection of technology
+    and design is where I thrive.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TDJ4KuDqh0g" frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 {% for post in posts %}
-    <div>
-        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-        <p>published: {{ post.published_date }}</p>
-        <p>{{ post.text|linebreaksbr }}</p>
+<div>
+    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+    <p>published: {{ post.published_date }}</p>
+    <p>{{ post.text|linebreaksbr }}</p>
     {% for tag in post.tags.all %}
-        <li> {{ tag.name }} </li>
+    <li> {{ tag.name }} </li>
     {% endfor %}
-    </div>
+</div>
 {% endfor %}
 
 {% endblock %}
