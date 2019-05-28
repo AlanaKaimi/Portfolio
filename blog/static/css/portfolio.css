@@ -39,6 +39,7 @@ body {
 }
 
 .card {
+    /* max-width: 450px; */
     margin-bottom: 15px;
     box-shadow: -2px 2px 5px rgba(87, 85, 85, 0.397);
 }
@@ -62,20 +63,23 @@ body {
 }
 
 .card-body img {
-    width: 100%;
+    float: left;
+    width: 50%;
     border-radius: 5px;
+    margin-right: 10px;
     /* padding: 0px 10px; */
 }
 
 .card .btn {
-    background-color: #e91eabd1;
-    border-color: #e91eabd1;
+    background-color: #007bff;
+    border-color: #007bff;
     border-radius: 50%;
-    padding: 1px 5px;
-    float: right;
-    font-size: 1.5rem;
+    padding: 1px 3px;
+    bottom: 3px;
+    /* float: right; */
+    font-size: 1rem;
     line-height: 1;
-    box-shadow: -1px 1px 3px rgba(87, 85, 85, 0.397);
+    box-shadow: -1px 1px 2px rgba(87, 85, 85, 0.397);
 }
 
 .card-title {
@@ -218,6 +222,25 @@ i {
     border: 1px solid rgb(216, 215, 215);
     font-size: 12px;
 }
+
+
+.demo {
+    color: #009688;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.github {
+    text-shadow: -1px 1px 2px rgba(87, 85, 85, 0.397);
+}
+
+.project-links .demo,
+.github {
+    float: right;
+    text-shadow: -1px 1px 2px rgba(87, 85, 85, 0.397);
+}
+
+
 
 /* Project styles */
 
