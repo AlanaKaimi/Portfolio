@@ -10,6 +10,7 @@ from django.views import generic
 from django.urls import reverse, reverse_lazy
 
 from django.shortcuts import render
+from taggit.models import Tag
 
 
 # def index(request):
