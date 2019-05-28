@@ -2,13 +2,17 @@
 
 {% block content %}
 
-<h1>{{ art.title }}</h1>
-<p><strong>Published: </strong>{{ art.publish_date }}</p>
+<h3>{{ artifact.title }}</h3>
+<p><strong>Published: </strong>{{ artifact.published_date }}</p>
 
+
+<div class="card-body">
+    <img src="../../{{ artifact.image }}" alt="...">
+</div>
 
 
 <div class="project-content">
-    <p>{{ art.description }}</p>
+    <p>{{ artifact.description }}</p>
 </div>
 
 

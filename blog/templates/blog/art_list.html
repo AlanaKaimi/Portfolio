@@ -20,9 +20,10 @@
 
 
 {% for artifact in artifacts %}
-<h5 class="card-title"><a href="{{ artifact.get_absolute_url }}">{{ artifact.title }}</a></h5>
-<p class="published">{{ artifact.published_date }}</p>
+
 <div class="card">
+    <h5 class="card-title"><a href="{{ artifact.get_absolute_url }}">{{ artifact.title }}</a></h5>
+    <p class="published">{{ artifact.published_date }}</p>
 
     <div class="card-body">
 
@@ -30,21 +31,19 @@
 
         <img src="../../{{ artifact.image }}" alt="...">
 
-        <div class="row">
-            <div class="col">
-                <div class="collapse" id="{{ artifact.slug }}">
-                    <div class="card-body">
-                        <p class="card-text">{{ artifact.description }}</p>
-                        <ul>
-                            {% for tag in artifact.tags.all %}
 
-                            <li>{{ tag.name }}</li>
+        <div class="collapse" id="{{ artifact.slug }}">
+            <div class="card-body">
+                <p class="card-text">{{ artifact.description }}</p>
+                <ul>
+                    {% for tag in artifact.tags.all %}
 
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
+                    <li>{{ tag.name }}</li>
+
+                    {% endfor %}
+                </ul>
             </div>
+
 
 
 
@@ -52,8 +51,8 @@
 
         </div>
 
-        <a class=" btn btn-primary" data-toggle="collapse" href="#{{ artifact.slug }}" role="button"
-            aria-expanded="false">+/-</a>
+        <a class="btn btn-primary" data-toggle="collapse" href="#{{ artifact.slug }}" role="button"
+            aria-expanded="false">+</a>
     </div>
 
 
