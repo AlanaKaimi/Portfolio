@@ -22,7 +22,7 @@
 {% for artifact in artifacts %}
 
 <div class="card">
-    <h5 class="card-title"><a href="{{ artifact.get_absolute_url }}">{{ artifact.title }}</a></h5>
+    <h5 class="card-title">{{ artifact.title }}</h5>
     <p class="published">{{ artifact.published_date }}</p>
 
     <div class="card-body">

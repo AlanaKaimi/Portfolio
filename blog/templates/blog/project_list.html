@@ -11,26 +11,25 @@
     <div class="card-body">
         <img src="../../{{ project.image }}" alt="...">
 
-        <div class="collapse" id="{{ project.slug }}">
-            <div class="card-body">
-                <p class="card-text">
 
-                    {{ project.description|linebreaksbr }}</p>
-                <p><strong>Links:</strong><br>
-                    <a href="{{ project.url }}" target="blank">Demo {{ project.title }} on heroku</a>
-                    <br>
-                    <a href="{{ project.github }}" target="blank"> Check out {{ project.title }}'s code on github</a>
-                </p>
-                <ul>
-                    {% for tag in project.tags.all %}
-                    <li> {{ tag.name }} </li>
-                    {% endfor %}
-                </ul>
+        <div class="card-body">
+            <p class="card-text">
 
-            </div>
+                {{ project.description|linebreaksbr }}</p>
+            <p>
+                <a class="btn-success" href="{{ project.url }}" role="button" target="blank">Demo</a>
+
+                <a href="{{ project.github }}" target="blank"><i class="fab fa-github fa-2x"></i></a>
+            </p>
+            <ul>
+                {% for tag in project.tags.all %}
+                <li> {{ tag.name }} </li>
+                {% endfor %}
+            </ul>
+
         </div>
-        <a class="btn btn-primary" data-toggle="collapse" href="#{{ project.slug }}" role="button"
-            aria-expanded="false">+</a>
+
+        <a class="btn btn-primary" href="{{ project.get_absolute_url }}" role="button" aria-expanded="false">+</a>
     </div>
 </div>
 {% endfor %}

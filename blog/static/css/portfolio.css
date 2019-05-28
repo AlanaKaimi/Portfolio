@@ -209,6 +209,16 @@ i {
     margin-top: 65px;
 }
 
+.project-content li {
+    color: blue;
+    list-style: none;
+    display: inline;
+    padding: 3px 5px;
+    border-radius: 50px;
+    border: 1px solid rgb(216, 215, 215);
+    font-size: 12px;
+}
+
 /* Project styles */
 
 @media screen and (max-width: 500px) {
