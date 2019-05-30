@@ -1,2 +1,2 @@
 # Portfolio
-Portfolio Website made with React
+Portfolio Website made with Python/Django
