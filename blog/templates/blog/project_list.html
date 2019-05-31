@@ -5,31 +5,35 @@
 
 {% for project in projects %}
 <div class="card">
-    <h5 class="card-title"><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h5>
+    <h3 class="card-title">{{ project.title }}
+    </h3>
     <p class="published">{{ project.published_date }}</p>
 
     <div class="card-body">
-        <img src="../../{{ project.image }}" alt="...">
-
-
-        <div class="card-body">
-            <p class="card-text">
-
-                {{ project.description|linebreaksbr }}</p>
-            <p>
-                <a class="btn-success" href="{{ project.url }}" role="button" target="blank">Demo</a>
-
-                <a href="{{ project.github }}" target="blank"><i class="fab fa-github fa-2x"></i></a>
-            </p>
+        <div class="project-links">
             <ul>
                 {% for tag in project.tags.all %}
                 <li> {{ tag.name }} </li>
                 {% endfor %}
-            </ul>
+
+
+                <a class="demo" data-toggle="tooltip" data-placement="top" title="Demo" href="{{ project.url }}"
+                    role="button" target="blank"><i class="fas fa-external-link-alt"></i></a>
+                <a class="github" data-toggle="tooltip" data-placement="top" title="Code" href="{{ project.github }}"
+                    target="blank"><i class="fab fa-github fa-lg"></i></a></ul>
+            <img src="../../{{ project.image }}" alt="...">
+            <p>{{ project.description|truncatechars:250 }} <a class="btn btn-primary"
+                    href="{{ project.get_absolute_url }}" role="button" aria-expanded="false">+</a></p>
+        </div>
+
+
+        <div class="card-body">
+
+
 
         </div>
 
-        <a class="btn btn-primary" href="{{ project.get_absolute_url }}" role="button" aria-expanded="false">+</a>
+
     </div>
 </div>
 {% endfor %}
