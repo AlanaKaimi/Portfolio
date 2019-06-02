@@ -42,6 +42,7 @@ body {
     /* max-width: 450px; */
     margin-bottom: 15px;
     box-shadow: -2px 2px 5px rgba(87, 85, 85, 0.397);
+
 }
 
 .card .card-body {
@@ -75,16 +76,21 @@ body {
     border-color: #007bff;
     border-radius: 50%;
     padding: 1px 3px;
-    bottom: 3px;
-    /* float: right; */
+    bottom: -3px;
     font-size: 1rem;
     line-height: 1;
     box-shadow: -1px 1px 2px rgba(87, 85, 85, 0.397);
 }
 
+.more {
+    float: right;
+}
+
 .card-title {
     margin: 5px 0px 0px 10px;
 }
+
+
 
 .carousel {
     max-width: 800px;

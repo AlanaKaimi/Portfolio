@@ -3,21 +3,6 @@
 {% block content %}
 
 
-<!-- {% for artifact in artifacts %}
-<div class="project clearfix">
-    <h3><a href="{{ artifact.get_absolute_url }}">{{ artifact.title }}</a></h3>
-    <p>published: {{ artifact.published_date }}</p>
-    {% for tag in artifact.tags.all %}
-    <li> {{ tag.name }} </li>
-    {% endfor %}
-    <img src="../../{{ artifact.image }}">
-
-
-    <p>{{ artifact.description|linebreaksbr }}</p>
-
-</div>
-{% endfor %} -->
-
 
 {% for artifact in artifacts %}
 
@@ -44,18 +29,13 @@
                 </ul>
             </div>
 
-
-
-
-
-
         </div>
 
-        <a class="btn btn-primary" data-toggle="collapse" href="#{{ artifact.slug }}" role="button"
-            aria-expanded="false">+/-</a>
+        <a class="btn btn-primary more" data-toggle="collapse" href="#{{ artifact.slug }}" role="button"
+            aria-expanded="false">+</a>
     </div>
 
-
 </div>
+
 {% endfor %}
 {% endblock %}
