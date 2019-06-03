@@ -22,8 +22,9 @@
                 <a class="github" data-toggle="tooltip" data-placement="top" title="Code" href="{{ project.github }}"
                     target="blank"><i class="fab fa-github fa-lg"></i></a></ul>
             <img src="../../{{ project.image }}" alt="...">
-            <p>{{ project.description|truncatechars:250 }} <a class="btn btn-primary"
-                    href="{{ project.get_absolute_url }}" role="button" aria-expanded="false">+</a></p>
+            <p>{{ project.description|truncatechars:250 }} <a class="btn btn-primary" data-toggle="tooltip"
+                    data-placement="bottom" title="More" href="{{ project.get_absolute_url }}" role="button"
+                    aria-expanded="false">></a></p>
         </div>
 
 
