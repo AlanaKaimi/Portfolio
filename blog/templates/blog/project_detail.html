@@ -49,9 +49,9 @@
     <p><strong>Links:</strong><br>
         <a href="{{ project.url }}" target="blank">Demo {{ project.title }} on heroku</a>
         <br>
-        {% if project.github == null %}
+        {% if project.has_github %}
         <a href="{{ project.github }}" target="blank"> Check out {{ project.title }}'s code on github</a>
-        {% else %}
+
         {% endif %}
     </p>
     <ul>

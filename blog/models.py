@@ -80,6 +80,10 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('project_detail', args=[str(self.slug)])
+    
+    @property
+    def has_github(self):
+        return self.github is not None
 
     def __str__(self):
         return self.title
