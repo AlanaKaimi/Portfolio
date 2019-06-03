@@ -5,7 +5,7 @@
 }
 
 body {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
@@ -31,6 +31,9 @@ body {
 
 .navbar {
     padding: 0;
+    float: right;
+    right: 0px;
+    bottom: 0px;
 }
 
 .navbar ul {
@@ -44,6 +47,7 @@ body {
     box-shadow: -2px 2px 5px rgba(87, 85, 85, 0.397);
 
 }
+
 
 .card .card-body {
     border: none
@@ -178,11 +182,24 @@ p {
     margin-left: 10px;
 }
 
+.art {
+    max-width: 275px;
+    justify-content: center;
+    margin: 2.5px;
+
+}
+
+.art img {
+    width: 100%;
+}
+
 
 .flex {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
+
 
 .lighter {
     color: rgb(172, 182, 192);

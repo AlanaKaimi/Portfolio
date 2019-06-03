@@ -2,40 +2,41 @@
 
 {% block content %}
 
+<div class="flex">
+
+    {% for artifact in artifacts %}
+
+    <div class="art card">
+        <h5 class="card-title">{{ artifact.title }}</h5>
+        <p class="published">{{ artifact.published_date }}</p>
+
+        <div class="card-body">
 
 
-{% for artifact in artifacts %}
 
-<div class="card">
-    <h5 class="card-title">{{ artifact.title }}</h5>
-    <p class="published">{{ artifact.published_date }}</p>
-
-    <div class="card-body">
+            <img src="../../{{ artifact.image }}" alt="...">
 
 
+            <div class="collapse" id="{{ artifact.slug }}">
+                <div class="card-body">
+                    <p class="card-text">{{ artifact.description }}</p>
+                    <ul>
+                        {% for tag in artifact.tags.all %}
 
-        <img src="../../{{ artifact.image }}" alt="...">
+                        <li>{{ tag.name }}</li>
 
+                        {% endfor %}
+                    </ul>
+                </div>
 
-        <div class="collapse" id="{{ artifact.slug }}">
-            <div class="card-body">
-                <p class="card-text">{{ artifact.description }}</p>
-                <ul>
-                    {% for tag in artifact.tags.all %}
-
-                    <li>{{ tag.name }}</li>
-
-                    {% endfor %}
-                </ul>
             </div>
 
+            <a class="btn btn-primary more" data-toggle="collapse" href="#{{ artifact.slug }}" role="button"
+                aria-expanded="false">+</a>
         </div>
 
-        <a class="btn btn-primary more" data-toggle="collapse" href="#{{ artifact.slug }}" role="button"
-            aria-expanded="false">+</a>
     </div>
 
+    {% endfor %}
 </div>
-
-{% endfor %}
 {% endblock %}
