@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Project, Art
+from .models import Post, Project, Images, Art
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -49,3 +49,12 @@ class ArtAdmin(admin.ModelAdmin):
 
     def tag_list(self, obj):
         return u", ".join(o.name for o in obj.tags.all())
+
+@admin.register(Images)
+class ImagesAdmin(admin.ModelAdmin):
+    list_display = (
+        'project',
+        'image',
+    )
+
+

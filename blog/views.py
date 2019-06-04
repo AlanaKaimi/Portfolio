@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, Project, Art
+from .models import Post, Project, Art, Images
 from django.forms import modelformset_factory
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -36,7 +36,7 @@ def project_list(request):
 def project_detail(request, slug):
     project = Project.objects.get(slug=slug)
     response = render(request, 'blog/project_detail.html', {
-        "project": project
+        "project": project,
     })
     return response
 
@@ -60,8 +60,8 @@ def project(request):
     #'extra' means the number of photos that you can upload   ^
     if request.method == 'POST':
 
-        projectForm = ProjectForm(request.POST)
-        formset = ImageFormSet(request.POST, request.FILES,
+        projectForm = ProjectForm(request.PROJECT)
+        formset = ImageFormSet(request.PROJECT, request.FILES,
                                queryset=Images.objects.none())
 
 
@@ -75,7 +75,7 @@ def project(request):
                 #do not upload all the photos
                 if form:
                     image = form['image']
-                    photo = Images(post=post_form, image=image)
+                    photo = Images(project=project_form, image=image)
                     photo.save()
             messages.success(request,
                              "Yeeew, check it out on the home page!")
