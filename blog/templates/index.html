@@ -2,22 +2,31 @@
 
 {% block content %}
 
+<div class="clearfix">
+    <h2>Welcome</h2>
+    <img src="../../static/img/kanaka-diaspora.jpg" class="home-pic">
+    <p>My name is AJ, and I've been a passionate creator for decades. Building solutions at the intersection of
+        technology
+        and design is where I thrive.</p>
+</div>
 
-<h2>Welcome</h2>
-<img src="../../static/img/kanaka-diaspora.jpg" class="home-pic">
-<p>My name is AJ, and I've been a passionate creator for decades. Building solutions at the intersection of technology
-    and design is where I thrive.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TDJ4KuDqh0g" frameborder="0"
-    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-{% for post in posts %}
-<div>
-    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-    <p>published: {{ post.published_date }}</p>
-    <p>{{ post.text|linebreaksbr }}</p>
-    {% for tag in post.tags.all %}
-    <li> {{ tag.name }} </li>
+<div class="flex">
+    <h3>Posts:</h3>
+    {% for post in posts %}
+    <div class="card">
+        <h3 class="card-title">{{ post.title }}</a></h3>
+        <p class="published">{{ post.published_date }}</p>
+        <div class="card-body">
+
+            <p class="card-text">{{ post.text|truncatechars:250 }} </p>
+            {% for tag in post.tags.all %}
+            <li> {{ tag.name }} </li>
+            {% endfor %}
+            <a class="btn btn-primary detail" data-toggle="tooltip" data-placement="bottom" title="More"
+                href="{{ post.get_absolute_url }}" role="button" aria-expanded="false"><i
+                    class="fas fa-angle-right fa-2x"></i></a>
+        </div>
+    </div>
     {% endfor %}
 </div>
-{% endfor %}
-
 {% endblock %}

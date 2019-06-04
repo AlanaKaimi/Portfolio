@@ -11,6 +11,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+img {
+    box-shadow: -2px 2px 5px rgba(87, 85, 85, 0.397);
+}
+
 .page-container {
     position: relative;
     min-height: 100%;
@@ -43,7 +47,7 @@ body {
 
 .card {
     /* max-width: 450px; */
-    margin-bottom: 15px;
+    margin-top: 15px;
     box-shadow: -2px 2px 5px rgba(87, 85, 85, 0.397);
 
 }
@@ -79,8 +83,8 @@ body {
     background-color: #007bff;
     border-color: #007bff;
     border-radius: 50%;
-    padding: 1px 3px;
-    bottom: -3px;
+    padding: 1px 1px;
+    /* bottom: -3px; */
     font-size: 1rem;
     line-height: 1;
     box-shadow: -1px 1px 2px rgba(87, 85, 85, 0.397);
@@ -200,6 +204,16 @@ p {
     align-items: flex-start;
 }
 
+.detail {
+    float: right;
+    margin-right: -23px;
+    width: 35px;
+    height: 35px;
+}
+
+.detail i {
+    justify-items: center;
+}
 
 .lighter {
     color: rgb(172, 182, 192);
@@ -208,12 +222,12 @@ p {
 /* Home page styles */
 .home-pic {
     float: left;
-    max-width: 45%;
+    max-width: 200px;
     margin-right: 10px;
 }
 
 /* Icon styles */
-i {
+.github i {
     padding-right: 5px;
 }
 
