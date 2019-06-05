@@ -9,11 +9,11 @@
         technology
         and design is where I thrive.</p>
 </div>
-
+<h2 style="margin-top:20px">Posts:</h2>
 <div class="flex">
-    <h3>Posts:</h3>
+
     {% for post in posts %}
-    <div class="card">
+    <div class="post card">
         <h3 class="card-title">{{ post.title }}</a></h3>
         <p class="published">{{ post.published_date }}</p>
         <div class="card-body">
@@ -24,7 +24,7 @@
             {% endfor %}
             <a class="btn btn-primary detail" data-toggle="tooltip" data-placement="bottom" title="More"
                 href="{{ post.get_absolute_url }}" role="button" aria-expanded="false"><i
-                    class="fas fa-angle-right fa-2x"></i></a>
+                    class="fas fa-angle-right"></i></a>
         </div>
     </div>
     {% endfor %}

@@ -1,42 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
+<p>Fight own tail weigh eight pounds but take up a full-size bed but skid on floor, crash into wall so pose purrfectly
+    to show my beauty for stare out the window. Jump on human and sleep on her all night long be long in the bed, purr
+    in the morning and then give a bite to every human around for not waking up request food, purr loud scratch the
+    walls, the floor, the windows, the humans ignore the human</p>
 
 <div class="flex">
+    <div class="container">
+        <div class="card-columns">
+            {% for artifact in artifacts %}
 
-    {% for artifact in artifacts %}
+            <div class="art card">
 
-    <div class="art card">
-        <h5 class="card-title">{{ artifact.title }}</h5>
-        <p class="published">{{ artifact.published_date }}</p>
+                <h5 class="card-title">{{ artifact.title }}</h5>
+                <p class="published">{{ artifact.published_date }}</p>
 
-        <div class="card-body">
-
-
-
-            <img src="../../{{ artifact.image }}" alt="...">
-
-
-            <div class="collapse" id="{{ artifact.slug }}">
                 <div class="card-body">
-                    <p class="card-text">{{ artifact.description }}</p>
-                    <ul>
-                        {% for tag in artifact.tags.all %}
 
-                        <li>{{ tag.name }}</li>
 
-                        {% endfor %}
-                    </ul>
+
+                    <img src="../../{{ artifact.image }}" alt="...">
+
+
+                    <div class="collapse" id="{{ artifact.slug }}">
+                        <div class="card-body">
+                            <p class="card-text">{{ artifact.description }}</p>
+                            <ul>
+                                {% for tag in artifact.tags.all %}
+
+                                <li>{{ tag.name }}</li>
+
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <a class="btn btn-primary more detail" data-toggle="collapse" href="#{{ artifact.slug }}"
+                        role="button" aria-expanded="false">+</a>
                 </div>
 
             </div>
 
-            <a class="btn btn-primary more" data-toggle="collapse" href="#{{ artifact.slug }}" role="button"
-                aria-expanded="false">+</a>
+            {% endfor %}
         </div>
-
     </div>
-
-    {% endfor %}
-</div>
-{% endblock %}
+    <!-- </div> -->
+    {% endblock %}

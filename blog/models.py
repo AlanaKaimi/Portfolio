@@ -84,6 +84,9 @@ class Project(models.Model):
     
     def has_github(self):
         return self.github is not None
+    
+    def has_website(self):
+        return self.url is not None
 
     def __str__(self):
         return self.title
@@ -92,9 +95,9 @@ class Project(models.Model):
         ordering = ['-published_date']
 
 def get_image_filename(instance, filename):
-    title = instance.post.title
+    title = instance.project.title
     slug = slugify(title)
-    return "post_images/%s-%s" % (slug, filename)  
+    return "project_images/%s-%s" % (slug, filename)  
 
 
 class Images(models.Model):
