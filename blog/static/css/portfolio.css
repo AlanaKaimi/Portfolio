@@ -15,6 +15,10 @@ img {
     box-shadow: -2px 2px 5px rgba(87, 85, 85, 0.397);
 }
 
+.container {
+    max-width: 100%;
+}
+
 .page-container {
     position: relative;
     min-height: 100%;
@@ -199,7 +203,7 @@ p {
 }
 
 .art {
-    max-width: 275px;
+    max-width: 300px;
     justify-content: center;
     margin: 9.5px;
 
@@ -212,7 +216,7 @@ p {
 }
 
 .post {
-    max-width: 275px;
+    max-width: 300px;
     margin-top: 2px;
 }
 
