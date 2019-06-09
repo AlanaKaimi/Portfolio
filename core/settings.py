@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://aqueous-tundra-53004.herokuapp.com/']
+ALLOWED_HOSTS = ['.aqueous-tundra-53004.herokuapp.com']
 
 
 # Application definition
