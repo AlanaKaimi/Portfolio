@@ -8,7 +8,7 @@
 
 
 <div>
-    <p>{{ post.text }}</p>
+    <p>{{ post.text|safe }}</p>
 
     <ul class="tags">
         {% for tag in post.tags.all %}

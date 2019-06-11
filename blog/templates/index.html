@@ -18,7 +18,7 @@
         <p class="published">{{ post.published_date }}</p>
         <div class="card-body">
 
-            <p class="card-text">{{ post.text|truncatechars:250 }} </p>
+            <p class="card-text">{{ post.text|truncatechars:250|safe }} </p>
             {% for tag in post.tags.all %}
             <li> {{ tag.name }} </li>
             {% endfor %}
