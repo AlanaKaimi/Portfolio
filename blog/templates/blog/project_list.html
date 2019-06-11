@@ -31,9 +31,9 @@
                     {% endif %}
                 </ul>
                 <img src="../../{{ project.image }}" alt="...">
-                <p>{{ project.description|truncatechars:250 }} <a class="btn btn-primary detail" data-toggle="tooltip"
-                        data-placement="bottom" title="More" href="{{ project.get_absolute_url }}" role="button"
-                        aria-expanded="false"><i class="fas fa-angle-right"></i></a></p>
+                <p>{{ project.description|truncatechars:250|safe }} <a class="btn btn-primary detail"
+                        data-toggle="tooltip" data-placement="bottom" title="More" href="{{ project.get_absolute_url }}"
+                        role="button" aria-expanded="false"><i class="fas fa-angle-right"></i></a></p>
             </div>
 
 

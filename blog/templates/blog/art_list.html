@@ -25,7 +25,7 @@
 
                     <div class="collapse" id="{{ artifact.slug }}">
                         <div class="card-body">
-                            <p class="card-text">{{ artifact.description }}</p>
+                            <p class="card-text">{{ artifact.description|safe }}</p>
                             <ul>
                                 {% for tag in artifact.tags.all %}
 
