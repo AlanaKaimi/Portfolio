@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Post, Project, Images, Art
+from . import models
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -17,6 +18,9 @@ class PostAdmin(admin.ModelAdmin):
     def tag_list(self, obj):
         return u", ".join(o.name for o in obj.tags.all())
     
+class ImagesInline(admin.TabularInline):
+    model = Images
+    extra = 4
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -26,6 +30,9 @@ class ProjectAdmin(admin.ModelAdmin):
         'created_date',
         'tag_list'
     )
+    inlines =[
+        ImagesInline
+    ]
     exclude = ('slug',)
 
     def get_queryset(self, request):
@@ -56,5 +63,6 @@ class ImagesAdmin(admin.ModelAdmin):
         'project',
         'image',
     )
+
 
 

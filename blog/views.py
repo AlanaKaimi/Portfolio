@@ -51,39 +51,3 @@ def art_detail(request, slug):
         "artifact": artifact
     })
     return response
-
-@login_required
-def project(request):
-
-    ImageFormSet = modelformset_factory(Images,
-                                        form=ImageForm, extra=3)
-    #'extra' means the number of photos that you can upload   ^
-    if request.method == 'POST':
-
-        projectForm = ProjectForm(request.PROJECT)
-        formset = ImageFormSet(request.PROJECT, request.FILES,
-                               queryset=Images.objects.none())
-
-
-        if projectForm.is_valid() and formset.is_valid():
-            projectForm = projectForm.save(commit=False)
-            projectForm.user = request.user
-            projectForm.save()
-
-            for form in formset.cleaned_data:
-                #this helps to not crash if the user   
-                #do not upload all the photos
-                if form:
-                    image = form['image']
-                    photo = Images(project=project_form, image=image)
-                    photo.save()
-            messages.success(request,
-                             "Yeeew, check it out on the home page!")
-            return HttpResponseRedirect("/")
-        else:
-            print(projectForm.errors, formset.errors)
-    else:
-        projectForm = ProjectForm()
-        formset = ImageFormSet(queryset=Images.objects.none())
-    return render(request, 'index.html',
-                  {'projectForm': projectForm, 'formset': formset})

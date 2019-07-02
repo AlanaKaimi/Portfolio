@@ -104,6 +104,7 @@ class Images(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, default=None)
     image = models.ImageField(upload_to=get_image_filename,
                               verbose_name='Image')
+    alt = models.TextField(default="")
 
 class Art(models.Model):
     
