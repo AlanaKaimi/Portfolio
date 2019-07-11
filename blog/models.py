@@ -48,7 +48,7 @@ class Project(models.Model):
     
     title = models.CharField(max_length=200)
     description = models.TextField()
-    image = models.ImageField(upload_to='static/img', blank=True, null=True)
+    # image = models.ImageField(upload_to='static/img', blank=True, null=True)
     image2 = models.ImageField(upload_to='static/img', blank=True, null=True)
     image3 = models.ImageField(upload_to='static/img', blank=True, null=True)
     image4 = models.ImageField(upload_to='static/img', blank=True, null=True)

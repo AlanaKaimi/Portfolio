@@ -34,10 +34,12 @@ def project_list(request):
     return render(request, 'blog/project_list.html', {'projects': projects})
 
 def project_detail(request, slug):
+
     project = Project.objects.get(slug=slug)
+    # Get all images
+	# images = project.images.all()
     response = render(request, 'blog/project_detail.html', {
-        "project": project,
-    })
+        "project": project })
     return response
 
 def art_list(request):
